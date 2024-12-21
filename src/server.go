@@ -156,25 +156,25 @@ func calcHandler(w http.ResponseWriter, r *http.Request) {
 	defer w.Write([]byte("\n"))
 	if r.Method != http.MethodPost {
 		w.WriteHeader(500)
-		w.Write([]byte("{\n\t\"error\": \"Internal server error\"\n}"))
+		w.Write([]byte("{\n    \"error\": \"Internal server error\"\n}"))
 		return
 	}
 	var req map[string]string
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		w.WriteHeader(500)
-		w.Write([]byte("{\n\t\"error\": \"Internal server error\"\n}"))
+		w.Write([]byte("{\n    \"error\": \"Internal server error\"\n}"))
 		return
 	}
 	res, calcerr := Calc(req["expression"])
 	if calcerr != nil {
 		if calcerr.Error() == "Expression is not valid" {
 			w.WriteHeader(422)
-			w.Write([]byte("{\n\t\"error\": \"Expression is not valid\"\n}"))
+			w.Write([]byte("{\n    \"error\": \"Expression is not valid\"\n}"))
 			return
 		}
 		w.WriteHeader(500)
-		w.Write([]byte("{\n\t\"error\": \"Internal server error\"\n}"))
+		w.Write([]byte("{\n    \"error\": \"Internal server error\"\n}"))
 		return
 	}
 	w.WriteHeader(200)
@@ -184,7 +184,7 @@ func calcHandler(w http.ResponseWriter, r *http.Request) {
 	resjson, err2 := json.MarshalIndent(resmap, "", "    ")
 	if err2 != nil {
 		w.WriteHeader(500)
-		w.Write([]byte("{\n\t\"error\": \"Internal server error\"\n}"))
+		w.Write([]byte("{\n    \"error\": \"Internal server error\"\n}"))
 		return
 	}
 	w.Write(resjson)
