@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"encoding/json"
@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/Lxdumb/calcd/calc"
+	"github.com/MadAppGang/httplog"
 )
 
 func calcHandler(w http.ResponseWriter, r *http.Request) {
@@ -47,7 +48,12 @@ func calcHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(resjson)
 }
 
-func main() {
-	http.HandleFunc("/api/v1/calculate", calcHandler)
+var calclogHandler http.Handler = http.HandlerFunc(calcHandler)
+
+func startserv() {
+	shortLoggedHandler := httplog.LoggerWithFormatter(
+		httplog.ShortLogFormatter,
+	)
+	http.Handle("/api/v1/calculate", shortLoggedHandler(calclogHandler))
 	http.ListenAndServe(":8080", nil)
 }
