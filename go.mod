@@ -2,7 +2,10 @@ module github.com/Lxdumb/calcd
 
 go 1.23.4
 
-require github.com/Lxdumb/calcd/calc v0.0.0-20241226102819-3ff0f6c7931c // indirect
+require (
+	github.com/Lxdumb/calcd/apid v0.0.0-20241226140618-03ccdedf43e9 // indirect
+	github.com/Lxdumb/calcd/calc v0.0.0-20241226134351-cddc7506e61a // indirect
+)
 
 require (
 	github.com/Lxdumb/calcd/api v0.0.0-20241226133822-d8b57fc55e09
