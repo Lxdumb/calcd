@@ -9,7 +9,7 @@ __Calcd__ поддерживает следующие математически
 
 __Calcd__ работает на порте 8080, т.е. URL веб-сервиса: `http://localhost:8080/api/v1/calculate`  
 Пример использования (используется curl, встроена в большинство Linux-дистрибутивов, есть [версия под Windows](https://curl.se/windows/)):  
-> `$ go run ./src/server.go`
+> `$ go run ./cmd/main.go`
 
 В другом окне терминала:   
 > `$ curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": "(3.1415926 * 8) / (6 + 3)"}'`  
