@@ -1,0 +1,6 @@
+{
+    "go.formatTool": "custom",
+    "go.lintOnSave": "off",
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+}
