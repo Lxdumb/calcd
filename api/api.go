@@ -50,7 +50,7 @@ func calcHandler(w http.ResponseWriter, r *http.Request) {
 
 var calclogHandler http.Handler = http.HandlerFunc(calcHandler)
 
-func startserv() {
+func StartServ() {
 	shortLoggedHandler := httplog.LoggerWithFormatter(
 		httplog.ShortLogFormatter,
 	)
