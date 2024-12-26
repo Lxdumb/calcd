@@ -1,10 +1,9 @@
 package main
 
 import (
-	"net/http"
+	"github.com/Lxdumb/calcd/api"
 )
 
 func main() {
-	http.HandleFunc("/api/v1/calculate", calcHandler)
-	http.ListenAndServe(":8080", nil)
+	api.StartServ()
 }
