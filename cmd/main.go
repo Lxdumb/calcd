@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Lxdumb/calcd/api"
+	"github.com/Lxdumb/calcd/apid"
 )
 
 func main() {
-	api.StartServ()
+	apid.StartServ()
 }

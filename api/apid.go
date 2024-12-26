@@ -1,4 +1,4 @@
-package api
+package apid
 
 import (
 	"encoding/json"
